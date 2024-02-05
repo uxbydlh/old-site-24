@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbf9f2">
+
+    <title>UX by DLH</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <link href="styles.css" rel="stylesheet" />
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
+            <a href="#projects">WORKS</a>
+            <a href="dailyui.html">DAILYUI</a>
+            <a href="about.html">ABOUT</a>
+        </nav>
+        <header class="business-card">
+            <div class="business-card-para">
+                <p>Halò! I’m a UX designer currently residing in <mark>Scotland</mark></p>
+                <img src="media/home/vector-thistle.png" alt="Thistle" style="padding-bottom:2px;">
+            </div>
+            <div class="business-card-para">
+                <p>My work is driven by empathy, collaboration, and <mark>fresh ideas</mark></p>
+                <img src="media/home/vector-lightbulb.png" alt="Lightbulb" style="padding-top:5px;">
+            </div>
+            <div class="business-card-para">
+                <p>That extra little thing your project needs? <mark>I can do that</mark></p>
+                <img src="media/home/vector-star.png" alt="Star">
+            </div>
+            <a href="#projects" class="view-my-work">
+                <img width="186" height="100" src="media/home/view-my-work.svg" alt="view my work!">
+            </a>
+        </header>
+        <main class="projects" id="projects" x-data="{selected: 0}">
+            <div class="project-list">
+                <a class="project-selector" @mouseover="selected = 1" @mouseleave="selected = 0"
+                    href="case-study-ie.html">
+                    <div class="project-number-and-title">
+                        <div class="project-number">01</div>
+                        <div class="project-title">Income & Expenditure Rework<br>
+                            <span class="project-client">Morses Club</span>
+                        </div>
+                    </div>
+                    <div class="project-tag-container">
+                        <div class="project-tag">Interaction Design</div>
+                        <div class="project-tag">UX/UI</div>
+                        <div class="project-tag">User Research</div>
+                        <div class="project-tag">Existing Product</div>
+                    </div>
+                </a>
+                <a class="project-selector" @mouseover="selected = 2" @mouseleave="selected = 0"
+                    href="case-study-pam.html">
+                    <div class="project-number-and-title">
+                        <div class="project-number">02</div>
+                        <div class="project-title">Principle Application Manager<br>
+                            <span class="project-client">Shelby Finance Internal Product</span>
+                        </div>
+                    </div>
+                    <div class="project-tag-container">
+                        <div class="project-tag">Interaction Design</div>
+                        <div class="project-tag">UX/UI</div>
+                        <div class="project-tag">User Research</div>
+                        <div class="project-tag">Branding</div>
+                        <div class="project-tag">New Product</div>
+                    </div>
+                </a>
+                <a class="project-selector" @mouseover="selected = 3" @mouseleave="selected = 0"
+                    href="case-study-portal.html">
+                    <div class="project-number-and-title">
+                        <div class="project-number">03</div>
+                        <div class="project-title">Online Customer Portal<br>
+                            <span class="project-client">Morses Club</span>
+                        </div>
+                    </div>
+                    <div class="project-tag-container">
+                        <div class="project-tag">UX/UI</div>
+                        <div class="project-tag">Branding</div>
+                        <div class="project-tag">Existing Product</div>
+                    </div>
+                </a>
+                <a class="project-selector" @mouseover="selected = 4" @mouseleave="selected = 0"
+                    href="case-study-features.html">
+                    <div class="project-number-and-title">
+                        <div class="project-number">04</div>
+                        <div class="project-title">Integrated Feature Medley<br>
+                            <span class="project-client">Dot Dot Loans</span>
+                        </div>
+                    </div>
+                    <div class="project-tag-container">
+                        <div class="project-tag">Interaction Design</div>
+                        <div class="project-tag">UX/UI</div>
+                        <div class="project-tag">New Feature</div>
+                        <div class="project-tag">Maintenance</div>
+                    </div>
+                </a>
+                <a class="project-selector" @mouseover="selected = 5" @mouseleave="selected = 0"
+                    href="case-study-journey.html">
+                    <div class="project-number-and-title">
+                        <div class="project-number">05</div>
+                        <div class="project-title">New Customer Journey<br>
+                            <span class="project-client">Morses Club</span>
+                        </div>
+                    </div>
+                    <div class="project-tag-container">
+                        <div class="project-tag">Interaction Design</div>
+                        <div class="project-tag">UX/UI</div>
+                        <div class="project-tag">Branding</div>
+                        <div class="project-tag">New Product</div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-screenshot">
+                <img src="media/home/project-select.webp" alt="Select a project to view the case study">
+                <img src="media/home/project-ie-screen.webp" alt="Income & Expenditure Rework" x-show="selected === 1"
+                    x-transition.opacity.duration.500ms>
+                <img src="media/home/project-pam-screen.webp" alt="Principle Application Manager"
+                    x-show="selected === 2" x-transition.opacity.duration.500ms>
+                <img src="media/home/project-portal-screen.webp" alt="Online Customer Portal" x-show="selected === 3"
+                    x-transition.opacity.duration.500ms>
+                <img src="media/home/project-features-screen.webp" alt="Integrated Feature Medley"
+                    x-show="selected === 4" x-transition.opacity.duration.500ms>
+                <img src="media/home/project-journey-screen.webp" alt="New Customer Journey" x-show="selected === 5"
+                    x-transition.opacity.duration.500ms>
+            </div>
+        </main>
+        <section class="available-for-work">
+            <div>I’m available for work!<br>Get in touch ☻</div>
+            <mark><a href="mailto:UXbyDLH@gmail.com">UXbyDLH@gmail.com</a></mark>
+        </section>
+        <footer>
+            <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
+            <span class="footer-credits">
+                design <a href="index.html">uxbydlh</a> | code <a href="https://leaf.codes">leafcodes</a>
+            </span>
+            <a>LINKEDIN</a>
+            <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
+            <a>PRINT CV</a>
+        </footer>
+    </div>
+</body>
+
+</html>

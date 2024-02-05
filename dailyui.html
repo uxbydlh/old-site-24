@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbf9f2">
+
+    <title>DailyUI · UX by DLH</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <link href="styles.css" rel="stylesheet" />
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
+            <a href="index.html#projects">WORKS</a>
+            <a class="current-page">DAILYUI</a>
+            <a href="about.html">ABOUT</a>
+        </nav>
+        <main class="dailyui" x-data="dailyui">
+            <header>
+                <h1>What is DailyUI?</h1>
+                <p>Every day for 100 days, you receive a short design prompt to work with.<br>Since each prompt is a
+                    mystery until you receive it, you will be encouraged to work outside of your comfort zone.</p>
+                <p>I completed my first attempt a while ago. Select a response to see the accompanying blog post.</p>
+                <a class="link-button" href="https://www.dailyui.co/">
+                    <span>Visit DailyUI</span><img src="media/right-arrow.png" alt="→"></a>
+            </header>
+            <div class="dailyui-grid" x-ref="grid">
+                <template x-for="i in range" :key="i">
+                    <a class="dailyui-item" x-data="item(i)" :href="`https://uxbydlh.wordpress.com/dailyui-${id}/`">
+                        <div><img :src="`media/dailyui/dailyui-${id}.webp`"></div>
+                        <div>
+                            <span x-text="id"></span>
+                            <h4 x-text="title"></h4>
+                        </div>
+                        <div x-text="subtitle"></div>
+                    </a>
+                </template>
+            </div>
+            <div class="dailyui-page-select">
+                <a href="#" @click.prevent="page = 0;$refs.grid.scrollIntoView()" :class="page === 0 && 'active'">01</a>
+                <a href="#" @click.prevent="page = 1;$refs.grid.scrollIntoView()" :class="page === 1 && 'active'">02</a>
+                <a href="#" @click.prevent="page = 2;$refs.grid.scrollIntoView()" :class="page === 2 && 'active'">03</a>
+                <a href="#" @click.prevent="page = 3;$refs.grid.scrollIntoView()" :class="page === 3 && 'active'">04</a>
+                <a href="#" @click.prevent="page = 4;$refs.grid.scrollIntoView()" :class="page === 4 && 'active'">05</a>
+            </div>
+        </main>
+        <section class="available-for-work">
+            <div>I’m available for work!<br>Get in touch ☻</div>
+            <mark><a href="mailto:UXbyDLH@gmail.com">UXbyDLH@gmail.com</a></mark>
+        </section>
+        <footer>
+            <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
+            <span class="footer-credits">
+                design <a href="index.html">uxbydlh</a> | code <a href="https://leaf.codes">leafcodes</a>
+            </span>
+            <a>LINKEDIN</a>
+            <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
+            <a>PRINT CV</a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            const gridData = [
+                // PAGE 01 - ITEM 001
+                { title: "Sign Up", subtitle: "Sign up screen for a dating app" },
+                { title: "Credit Card Checkout", subtitle: "Check out screen for florists" },
+                { title: "Landing Page", subtitle: "VisitScotland re-design" },
+                { title: "Calculator", subtitle: "Mobile scientific calculator" },
+                { title: "App Icons", subtitle: "3 fictional app icons" },
+                { title: "User Profile", subtitle: "Doctor and patient app profiles" },
+                { title: "Settings", subtitle: "User settings on a medical app" },
+                { title: "404 Page", subtitle: "“Not found” page for florists" },
+                { title: "Music Player", subtitle: "Music app with artist info" },
+                { title: "Social Share", subtitle: "“Share track” feature for music app" },
+                { title: "Flash Message", subtitle: "Appointment confirmation" },
+                { title: "E-Commerce", subtitle: "Florist product page" },
+                { title: "Direct Messaging", subtitle: "Direct messaging with GP" },
+                { title: "Timer", subtitle: "Cooking timer with presets" },
+                { title: "Switch", subtitle: "Various on/off switch designs" },
+                { title: "Popup/Overlay", subtitle: "Cookie control/privacy policy popup" },
+                { title: "Email Receipt", subtitle: "Email receipt for florist" },
+                { title: "Analytics", subtitle: "Livestreaming viewership analytics" },
+                { title: "Leaderboard", subtitle: "Classroom app leaderboard" },
+                { title: "Location Tracker", subtitle: "App for wireless cat collar tracker" },
+                // PAGE 02 - ITEM 021
+                { title: "Dashboard", subtitle: "Home monitoring dashboard" },
+                { title: "Search", subtitle: "Tech repair service search" },
+                { title: "Onboarding", subtitle: "Dating app onboarding" },
+                { title: "Boarding Pass", subtitle: "Airline boarding pass" },
+                { title: "Smart TV", subtitle: "“Slow television” streaming app" },
+                { title: "Subscribe", subtitle: "Mailing list for makeup shop" },
+                { title: "Dropdown", subtitle: "Classroom app language dropdown" },
+                { title: "Contact Us", subtitle: "Tech repair service contact page" },
+                { title: "Map", subtitle: "Walking tour planning map" },
+                { title: "Pricing", subtitle: "Payment plans for classroom app" },
+                { title: "File Upload", subtitle: "Tech repair image upload" },
+                { title: "Crowdfunding", subtitle: "Campaign & donation page" },
+                { title: "Custom Product", subtitle: "Dress shirt designer" },
+                { title: "Car Interface", subtitle: "Distance temperature control" },
+                { title: "Blog", subtitle: "Blog post from an imagined platform" },
+                { title: "Offer", subtitle: "Flash sale ui changes" },
+                { title: "Weather", subtitle: "Colour-coded, hour-by-hour weather" },
+                { title: "Calendar", subtitle: "Hotel stay booking form" },
+                { title: "Testimonial", subtitle: "Web designer testimonials" },
+                { title: "Recipe", subtitle: "Recipe page with portion editor" },
+                // PAGE 03 - ITEM 041
+                { title: "Workout", subtitle: "Daily workout tracker" },
+                { title: "To-Do List", subtitle: "To-do list with priorities & categories" },
+                { title: "Food & Drink", subtitle: "Digital ramen restaurant menu" },
+                { title: "Favourites", subtitle: "Favourites area for food menu" },
+                { title: "Info Card", subtitle: "Swipable hotel info cards" },
+                { title: "Invoice", subtitle: "App for sending & paying invoices" },
+                { title: "Activity Feed", subtitle: "Project management app feed" },
+                { title: "Coming Soon", subtitle: "Fictional fashion brand collection" },
+                { title: "Notification", subtitle: "Project management app messages" },
+                { title: "Job Listing", subtitle: "Job post on a fictional job board" },
+                { title: "Press Page", subtitle: "Press sheet with downloadables" },
+                { title: "Logo", subtitle: "Logo for cat-tracking app" },
+                { title: "Header Navigation", subtitle: "Site header for a fictional artist" },
+                { title: "Confirm", subtitle: "Simple email verification" },
+                { title: "Icon Set", subtitle: "‘Single-stroke’ style icons" },
+                { title: "Breadcrumbs", subtitle: "Tech shop checkout steps" },
+                { title: "Video Player", subtitle: "Recipe player with chapters" },
+                { title: "Shopping Cart", subtitle: "Furniture shop online cart" },
+                { title: "Background Pattern", subtitle: "Microfloral blogger background" },
+                { title: "Colour Picker", subtitle: "Image-based hexcode picker" },
+                // PAGE 04 - ITEM 061
+                { title: "Redeem Coupon", subtitle: "Digital coupons for a physical shop" },
+                { title: "Workout of the Day", subtitle: "Gamified workout tracker" },
+                { title: "Best of 2015", subtitle: "Listicle-style “best of” page" },
+                { title: "Select User Type", subtitle: "Jobsite position selector" },
+                { title: "Notes Widget", subtitle: "Digital notebook with folders" },
+                { title: "Statistics", subtitle: "Sleep tracking app" },
+                { title: "Hotel Booking", subtitle: "Luxury room booking" },
+                { title: "Flight Search", subtitle: "Simple, seating-chart based booking" },
+                { title: "Trending", subtitle: "Fashion & moodboarding application" },
+                { title: "Event Listing", subtitle: "Costume event info" },
+                { title: "Schedule", subtitle: "Company-wide meeting tracking" },
+                { title: "Image Slider", subtitle: "Perfume product photos" },
+                { title: "Virtual Reality", subtitle: "“Virtual Test Ride” car app" },
+                { title: "Download App", subtitle: "Advertising page for cat tracker" },
+                { title: "Pre-Order", subtitle: "Launch page for coffee product" },
+                { title: "Loading", subtitle: "Lazy loading for florist shop" },
+                { title: "Thank you", subtitle: "Thank you for purchasing page" },
+                { title: "Pending Invitation", subtitle: "Project management invite nudge" },
+                { title: "Itinerary", subtitle: "A walking tour in Italy" },
+                { title: "Date Picker", subtitle: "Age verification screen" },
+                // PAGE 04 - ITEM 081 
+                { title: "Status Update", subtitle: "Created with MentorMe UI kit" },
+                { title: "Form", subtitle: "User-friendly checkout form" },
+                { title: "Button", subtitle: "Set of button components for Figma" },
+                { title: "Badge", subtitle: "Memphis-inspired badge elements" },
+                { title: "Pagination", subtitle: "Simple page selection" },
+                { title: "Progress Bar", subtitle: "Tracking package delivery" },
+                { title: "Tooltip", subtitle: "E-book word definition" },
+                { title: "Avatar", subtitle: "Custom avatar maker/dress-up" },
+                { title: "Terms of Service", subtitle: "Simplified terms & conditions" },
+                { title: "Create New", subtitle: "Video game review database" },
+                { title: "Curated for You", subtitle: "E-reader with suggested books" },
+                { title: "FAQ", subtitle: "Sewing pattern website questions" },
+                { title: "Splash Screen", subtitle: "Animated flight booking screen" },
+                { title: "News", subtitle: "Fictional, independent newspaper" },
+                { title: "Product Tour", subtitle: "Scheduling app “first-time” tour" },
+                { title: "Currently In-Stock", subtitle: "Highlighted furniture stock numbers" },
+                { title: "Giveaway", subtitle: "Skincare product sweepstakes" },
+                { title: "Advertisement", subtitle: "Integrated banner ads" },
+                { title: "Categories", subtitle: "List of food-delivery categories" },
+                { title: "Finale", subtitle: "Daily UI landing page redesign" },
+            ]
+            Alpine.data('dailyui', () => ({
+                page: 0,
+                get range() { return Array.from({ length: 20 }, (_, i) => this.page * 20 + i) }
+            }))
+            Alpine.data('item', (index) => ({
+                id: (index + 1).toString().padStart(3, '0'),
+                ...gridData[index]
+            }))
+        })
+    </script>
+</body>
+
+</html>
