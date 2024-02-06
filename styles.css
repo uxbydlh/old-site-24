@@ -155,10 +155,6 @@ footer > a:hover {
   color: var(--text-colour);
 }
 
-.contact-links {
-  margin-left: auto;
-}
-
 .align-self-centre {
   align-self: center;
 }
