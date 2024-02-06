@@ -140,6 +140,7 @@ footer {
 
 .footer-credits {
   margin: 0 auto 0 auto;
+  float: center;
 }
 
 .footer-credits > a {
