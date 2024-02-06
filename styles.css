@@ -142,10 +142,6 @@ footer {
   margin: 0 auto 0 auto;
 }
 
-.contact-links {
-  margin-left: auto;
-}
-
 .footer-credits > a {
   color: var(--text-colour);
 }
@@ -157,6 +153,10 @@ footer > a {
 
 footer > a:hover {
   color: var(--text-colour);
+}
+
+.contact-links {
+  margin-left: auto;
 }
 
 .align-self-centre {
