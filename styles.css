@@ -121,10 +121,10 @@ nav .current-page {
 }
 
 footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: end;
-  gap: 16px;
+  text-align: center;
 
   height: 96px;
   margin: 0 24px;
@@ -138,21 +138,22 @@ footer {
   height: 32px;
 }
 
-.footer-credits {
-  margin: 0 auto 0 auto;
-  float: center;
-}
-
 .footer-credits > a {
   color: var(--text-colour);
 }
 
-footer > a {
+.footer-links {
+  display: flex;
+  justify-content: end;
+  gap: 16px;
+}
+
+.footer-links > a {
   color: var(--unselected-colour);
   text-decoration-line: none;
 }
 
-footer > a:hover {
+.footer-links > a:hover {
   color: var(--text-colour);
 }
 
