@@ -19,24 +19,38 @@
 
 <body>
     <div class="container">
-        <nav>
-            <a class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
-            <a href="index.html#projects">WORKS</a>
-            <a class="current-page">DAILYUI</a>
-            <a href="about.html">ABOUT</a>
-        </nav>
+
+        <!--navigation header and bar-->
+        <!--TODO: Links: logo/home, folio, dailyui, about-->
+        <header class="header">
+                <!--Image-based Logo-->
+                <a class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+                <!--Menu/Close Text button(s)-->
+                    <input class="side-menu" type="checkbox" id="side-menu"/>
+                    <label class="open-menu" for="side-menu">MENU</label>
+                    <label class="close-menu" for="side-menu">CLOSE</label>
+                <!--Menu itself-->
+                <nav class="nav">
+                    <ul class="menu">
+                        <li><a href="/folio.html">FOLIO</a></li>
+                        <li><a href="/dailyui.html">DAILY UI</a></li>
+                        <li><a href="/about.html">ABOUT</a></li>
+                    </ul>
+                </nav>
+        </header>
+
         <main class="dailyui" x-data="dailyui">
-            <header>
+            <div class="dailyui-header">
                 <h1>What is DailyUI?</h1>
                 <p>Every day for 100 days, you receive a short design prompt to work with.<br>Since each prompt is a
                     mystery until you receive it, you will be encouraged to work outside of your comfort zone.</p>
                 <p>I completed my first attempt a while ago. Select a response to see the accompanying blog post.</p>
-                <a class="link-button" href="https://www.dailyui.co/">
+                <a class="link-button" href="https://www.dailyui.co/" target="_blank" rel="noopener noreferrer">
                     <span>Visit DailyUI</span><img src="media/right-arrow.png" alt="→"></a>
-            </header>
+            </div>
             <div class="dailyui-grid" x-ref="grid">
                 <template x-for="i in range" :key="i">
-                    <a class="dailyui-item" x-data="item(i)" :href="`https://uxbydlh.wordpress.com/dailyui-${id}/`">
+                    <a class="dailyui-item" x-data="item(i)" :href="`https://uxbydlh.wordpress.com/dailyui-${id}/`" target="_blank" rel="noopener noreferrer">
                         <div><img :src="`media/dailyui/dailyui-${id}.webp`"></div>
                         <div>
                             <span x-text="id"></span>
@@ -54,20 +68,21 @@
                 <a href="#" @click.prevent="page = 4;$refs.grid.scrollIntoView()" :class="page === 4 && 'active'">05</a>
             </div>
         </main>
+
         <section class="available-for-work">
-            <div>I’m available for work!<br>Get in touch ☻</div>
-            <mark><a href="mailto:UXbyDLH@gmail.com">UXbyDLH@gmail.com</a></mark>
-        </section>
-        <footer>
-            <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
-            <span class="footer-credits">
-                design <a href="index.html">uxbydlh</a> | code <a href="https://leaf.codes">leafcodes</a>
-            </span>
-            <div class="footer-links">
-                <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
-                <a href="https://drive.google.com/file/d/1JpD8ZEzbw4wTN-DS_iIwcdwCaLiOvqnF/view?usp=sharing" target="_blank" rel="noopener noreferrer">VIEW CV</a>
-            </div>
-        </footer>
+                <div>I'm available for work! <br>Get in touch ☻</div>
+                <mark><a href="mailto:UXbyDLH.com">UXbyDLH@gmail.com</a></mark>
+            </section>
+
+            <!--Footer-->
+            <!--TODO: ADD REAL LINKS-->
+            <footer>
+                <div class="footer-links">
+                    <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
+                    <a href="https://www.linkedin.com/in/dorian-h-a1b8b0302/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+                </div>
+                <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+            </footer>
     </div>
 
     <script>
