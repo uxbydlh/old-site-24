@@ -1,3 +1,158 @@
-<p>Redirecting to portfolio...</p>
-<p>If you are not redirected within 30 seconds, please click <a href="https://www.figma.com/proto/wCaw7ABEldnvl99jPDKULY/Creative-Portfolio?type=design&node-id=1-2&t=WWBR0rVbCJvxXxwA-1&scaling=contain&page-id=0%3A1&starting-point-node-id=1%3A2&mode=design">here</a></p>
-<meta http-equiv="refresh" content="2; URL=https://www.figma.com/proto/wCaw7ABEldnvl99jPDKULY/Creative-Portfolio?type=design&node-id=1-2&t=WWBR0rVbCJvxXxwA-1&scaling=contain&page-id=0%3A1&starting-point-node-id=1%3A2&mode=design"/>
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="fbf9f2">
+
+    <title>Folio · UX by DLH</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+
+    <link href="styles.css" rel="stylesheet"/>
+
+    <!--Alpine js: allows us to make hover selections in real time w the button components-->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+            <!--Image-based Logo-->
+            <a class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+            <!--Menu/Close Text button(s)-->
+                <input class="side-menu" type="checkbox" id="side-menu"/>
+                <label class="open-menu" for="side-menu">MENU</label>
+                <label class="close-menu" for="side-menu">CLOSE</label>
+            <!--Menu itself-->
+            <nav class="nav">
+                <ul class="menu">
+                    <li><a href="/folio.html">FOLIO</a></li>
+                    <li><a href="/dailyui.html">DAILY UI</a></li>
+                    <li><a href="/about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!--Folio Segments (some of these only have one proj for now)-->
+            <div class="folio-segments" id="folio-segments" x-data="{selected: 0}">
+                <div class="folio-list">
+                    <!--Segment 1-->
+                    <a class="folio-selector" @mouseover="selected = 1" @mouseleave="selected = 0"
+                    href="https://uxbydlh.wordpress.com/2024/08/13/very-evil-demons-site-design/" target="_blank" rel="noopener noreferrer">
+                        <img class="folio-icon" src="media/folio/vector-VED.svg">
+                        <div class="folio-title-caption-tags">
+                            <div class="folio-title">Very Evil Demons</div>
+                            <div class="folio-caption">Web design for an indie game development studio</div>
+                            <!--Using the same styling from the homepage-->
+                            <div class="project-tag-container">
+                                <div class="project-tag">UX/UI</div>
+                                <div class="project-tag">Web Design</div>
+                                <div class="project-tag">Freelance</div>
+                            </div>
+                        </div>
+                    </a>
+                    <!--Segment 1-->
+                    <a class="folio-selector" @mouseover="selected = 2" @mouseleave="selected = 0"
+                    href="https://uxbydlh.wordpress.com/2024/08/12/devon-healing-horsemanship-site-design/" target="_blank" rel="noopener noreferrer">
+                        <img class="folio-icon" src="media/folio/vector-devonhh.svg">
+                        <div class="folio-title-caption-tags">
+                            <div class="folio-title">DevonHH.org.uk</div>
+                            <div class="folio-caption">Horse-powered therapy services</div>
+                            <!--Using the same styling from the homepage-->
+                            <div class="project-tag-container">
+                                <div class="project-tag">UX/UI</div>
+                                <div class="project-tag">Web Design</div>
+                                <div class="project-tag">Freelance</div>
+                            </div>
+                        </div>
+                    </a>
+                    <!--Segment 2-->
+                    <a class="folio-selector" @mouseover="selected = 3" @mouseleave="selected = 0"
+                    href="https://uxbydlh.wordpress.com/category/case-studies/morses-club-plc/" target="_blank" rel="noopener noreferrer">
+                        <img class="folio-icon" src="media/folio/vector-morses.svg">
+                        <div class="folio-title-caption-tags">
+                            <div class="folio-title">Morses Club PLC</div>
+                            <div class="folio-caption">Personal finance services</div>
+                            <!--Using the same styling from the homepage-->
+                            <div class="project-tag-container">
+                                <div class="project-tag">UX/UI</div>
+                                <div class="project-tag">Web Design</div>
+                                <div class="project-tag">Full-time</div>
+                            </div>
+                        </div>
+                    </a>
+                    <!--Segment 3-->
+                    <a class="folio-selector" @mouseover="selected = 4" @mouseleave="selected = 0"
+                    href="/dailyui.html" target="_blank" rel="noopener noreferrer">
+                        <img class="folio-icon" src="media/folio/vector-dailyui.svg">
+                        <div class="folio-title-caption-tags">
+                            <div class="folio-title">Daily UI</div>
+                            <div class="folio-caption">100 days of UI design</div>
+                            <!--Using the same styling from the homepage-->
+                            <div class="project-tag-container">
+                                <div class="project-tag">UI</div>
+                                <div class="project-tag">Challenge</div>
+                                <div class="project-tag">Complete</div>
+                            </div>
+                        </div>
+                    </a>
+                    <!--Segment 4-->
+                    <a class="folio-selector" @mouseover="selected = 5" @mouseleave="selected = 0"
+                    href="https://uxbydlh.wordpress.com/category/graphic-design/design-chef-graphic-design/" target="_blank" rel="noopener noreferrer">
+                        <img class="folio-icon" src="media/folio/vector-designchef.svg">
+                        <div class="folio-title-caption-tags">
+                            <div class="folio-title">Design Chef</div>
+                            <div class="folio-caption">60-minute challenges from Elliot Ulm</div>
+                            <!--Using the same styling from the homepage-->
+                            <div class="project-tag-container">
+                                <div class="project-tag">Graphic Design</div>
+                                <div class="project-tag">Challenge</div>
+                                <div class="project-tag">Ongoing</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--Project selector "blobs" - SHOULD NOT BE VISIBLE ON MOBILE-->
+                <div class="folio-blob">
+                    <img src="media/folio/project-blob.webp" alt="select a section to view related projects"
+                    x-show="selected === 0" x-transition.opacity.duration.500ms>
+                    <img src="media/folio/VED-blob.webp" alt="Very Evil Demons"
+                    x-show="selected === 1" x-transition.opacity.duration.500ms>
+                    <img src="media/folio/devonhh-blob.webp" alt="DevonHH dot org dot UK"
+                    x-show="selected === 2" x-transition.opacity.duration.500ms>
+                    <img src="media/folio/morses-blob.webp" alt="Morses Club PLC"
+                    x-show="selected === 3" x-transition.opacity.duration.500ms>
+                    <img src="media/folio/dailyui-blob.webp" alt="Daily UI Challenge"
+                    x-show="selected === 4" x-transition.opacity.duration.500ms>
+                    <img src="media/folio/designchef-blob.webp" alt="Design Chef Challenge from Elliot Ulm"
+                    x-show="selected === 5" x-transition.opacity.duration.500ms>
+                </div>
+            </div>
+
+            <section class="available-for-work">
+                <div>I'm available for work! <br>Get in touch ☻</div>
+                <mark><a href="mailto:UXbyDLH.com">UXbyDLH@gmail.com</a></mark>
+            </section>
+
+            <!--Footer-->
+            <!--TODO: ADD REAL LINKS-->
+            <footer>
+                <div class="footer-links">
+                    <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
+                    <a href="https://www.linkedin.com/in/dorian-h-a1b8b0302/">LINKEDIN</a>
+                </div>
+                <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+            </footer>
+        </main>
+
+    </div>
+</body>
+
+</html>

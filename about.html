@@ -19,43 +19,129 @@
 
 <body>
     <div class="container">
-        <nav>
-            <a class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
-            <a href="index.html#projects">WORKS</a>
-            <a href="dailyui.html">DAILYUI</a>
-            <a class="current-page">ABOUT</a>
-        </nav>
-        <main id="about">
-            <div class="column-24px">
-                <h2>About Me</h2>
-                <p>I am an experience and interface designer based in Scotland, with a bachelor’s degree in computer
-                    science from Strathclyde University.
-                    <br><br>
-                    Formerly a fintech software engineer, I’ve transitioned into the world of UX design, where I now
-                    blend my tech knowledge with my passion for crafting user-centric products.
-                </p>
-                <h2>Design Philosophy</h2>
-                <p>It doesn’t have to be how it has always been.</p>
-                <h2>Hobbies</h2>
-                <p>When I’m not designing, Im either sewing, painting, or reading independent comics.</p>
-            </div>
-            <img src="media/about/self-portrait.png" alt="Vector illustration of a UX/UI designer working">
-        </main>
-        <section class="available-for-work">
-            <div>I’m available for work!<br>Get in touch ☻</div>
-            <mark><a href="mailto:UXbyDLH@gmail.com">UXbyDLH@gmail.com</a></mark>
-        </section>
-        <footer>
-            <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH"></a>
-            <span class="footer-credits">
-                design <a href="index.html">uxbydlh</a> | code <a href="https://leaf.codes">leafcodes</a>
-            </span>
-            <div class="footer-links">
-                <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
-                <a href="https://drive.google.com/file/d/1JpD8ZEzbw4wTN-DS_iIwcdwCaLiOvqnF/view?usp=sharing" target="_blank" rel="noopener noreferrer">VIEW CV</a>
-            </div>
-        </footer>
-    </div>
-</body>
 
-</html>
+        <!--navigation header and bar-->
+        <!--TODO: Links: logo/home, folio, dailyui, about-->
+        <header class="header">
+                <!--Image-based Logo-->
+                <a class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+                <!--Menu/Close Text button(s)-->
+                    <input class="side-menu" type="checkbox" id="side-menu"/>
+                    <label class="open-menu" for="side-menu">MENU</label>
+                    <label class="close-menu" for="side-menu">CLOSE</label>
+                <!--Menu itself-->
+                <nav class="nav">
+                    <ul class="menu">
+                        <li><a href="/folio.html">FOLIO</a></li>
+                        <li><a href="/dailyui.html">DAILY UI</a></li>
+                        <li><a href="/about.html">ABOUT</a></li>
+                    </ul>
+                </nav>
+        </header>
+
+        <main id="about" x-data="testimonials">
+            <div class="about-me">
+                <img class="about-me-portrait" src="media/about/portrait.svg">
+                <div class="about-me-para-btns">
+                    <h1>About</h1>
+                    <p>
+                        Hey, I'm Dorian, a UX/UI designer from Scotland.
+                        I like collecting records and exploring the cave of the unknown.
+                    </p>
+                    <p>
+                        I started my career as a software engineer following my education at the University of Strathclyde.
+                        Years ago, I fell in love with design and I haven't looked back since.
+                    </p>
+                    <p>
+                        Right now, I'm really enjoying web design. I believe that we should have 
+                        fun and interesting places to visit online outside of the main, big
+                        social medias.
+                    </p>
+                    <p>
+                        If you have an interesting idea that needs a designer's touch, I would love to hear from you. 
+                        Drop me an email at: <a>UXbyDLH@gmail.com</a>
+                    </p>
+                    <div class="about-me-btns">
+                        <a class="link-button" href="#">
+                            <span>View CV</span><img src="media/right-arrow.png" alt="→"></a>
+                        <a><img src="media/about/btn-mail.svg" alt="Send me an email"></a>
+                        <a><img src="media/about/btn-linkedin.svg" alt="Connect with me on LinkedIn"></a>
+                    
+                    </div>
+                </div>
+            </div>
+            <h1>Testimonials</h1>
+            <figure class="slide-carousel" x-data="{slide: 0}">
+                <div class="slides">
+                    <template x-for="tm in testData">
+                        <div class="testimonials-item">
+                            <div class="testimonials-quote">
+                                <img class="quote-mark" src="media/about/quote-left.svg">
+                                <p x-text="tm.quote"></p>
+                                <img class="quote-mark" src="media/about/quote-right.svg"/>
+                            </div>
+                            <div class="testimonials-person">
+                                <img :src="`media/about/${tm.image}.webp`">
+                                <div class=>
+                                    <span x-text="tm.name"></span>
+                                    <h4 x-text="tm.role"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </figure>
+        </main>
+
+        <!--Footer-->
+            <!--TODO: ADD REAL LINKS-->
+            <footer>
+                <div class="footer-links">
+                    <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
+                    <a href="https://www.linkedin.com/in/dorian-h-a1b8b0302/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+                </div>
+                <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+            </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            const testData = [
+                {
+                    name: "Sidonie Lawrie",
+                    role: "Head of Product at Nurtur.Tech",
+                    quote: "Dorian has a remarkable ability to capture not only what you want but what you need through design. ... They can consistently back every design with customer data, competitor analysis or best practise so you know that every detail has been thoughtfully created in a way that keeps user experience at its heart.",
+                    image: "SidLaw"
+                },
+                {
+                    name: "Craig Fahrenholz",
+                    role: "IT Manager at NAFEMS",
+                    quote: "Dorian's design expertise and attention to detail are absolutely fantastic. They've got an amazing grasp of what a great user experience looks like and it makes the building of a project that much easier when you've got someone with their expertise on board.",
+                    image: "CraigFah"
+                },
+                {
+                    name: "Troy M",
+                    role: "MBCS | Business Analyst/Product Manager",
+                    quote: "During our time together at Morses Club, Dorian consistently demonstrated a deep understanding of industry standards and trends in UI/UX design space. ...  Dorian's talent, professionalism, and commitment to delivering top-notch work make them a valuable asset to any team.",
+                    image: "TroyM"
+                },
+                {
+                    name: "T Catt",
+                    role: "Eisner-nominated writer",
+                    quote: "Dorian was more than happy to explain to me some of the basics and show me how to get started in Figma. ... this is the kind of person who has found their calling; a rare gem that any employer would be wise to curate. If you need a job done, they will get it done.",
+                    image: "TCatt"
+                },
+                {
+                    name: "Louise Broadway",
+                    role: "Founder & CEO - Devon Healing Horsemanship",
+                    quote: "Seriously can't praise Dorian enough if you are like me and you don't have time to hold someone's hand through the process and you need someone who can take control of the project and make it happen Dorian is the person for you.",
+                    image: "LouiseBro"
+                }
+            ]
+            Alpine.data('testimonials', () => ({
+                get testData() {return testData}
+            }))
+        })
+    </script>
+</body>
