@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <!--tells browser how to control dimensions & scaling-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--suggests a colour that user agents (like browser?) should use to
+    customise the display of a page or it's surrounding ui (such as url
+    bar, etc.)-->
+    <meta name="theme-color" content="#fbf9f2">
+
+    <title>UX by DLH</title>
+
+    <!--TODO: maybe change this to have clearer background-->
+    <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png"> 
+    <!--favicons-->
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+
+    <!--stylesheet-->
+    <link href="styles.css" rel="stylesheet"/>
+
+    <!--Alpine js: allows us to make hover selections in real time with the project button components-->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!--navigation header and bar-->
+        <!--TODO: Links: logo/home, folio, dailyui, about-->
+        <header class="header">
+                <!--Image-based Logo-->
+                <a href="index.html" class="nav-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+                <!--Menu/Close Text button(s)-->
+                    <input class="side-menu" type="checkbox" id="side-menu"/>
+                    <label class="open-menu" for="side-menu">MENU</label>
+                    <label class="close-menu" for="side-menu">CLOSE</label>
+                <!--Menu itself-->
+                <nav class="nav">
+                    <ul class="menu">
+                        <li><a href="/folio.html">FOLIO</a></li>
+                        <li><a href="/dailyui.html">DAILY UI</a></li>
+                        <li><a href="/about.html">ABOUT</a></li>
+                    </ul>
+                </nav>
+        </header>
+
+        <!--Main Content of page goes here-->
+        <main>
+
+            <!--Business Card-->
+            <div class="business-card">
+                <div class="business-card-line">
+                    <!--TODO: fix accent on Halo!-->
+                    <!--mark is used to highlight text inside another element-->
+                    <p>Hello! I'm a UX designer currently residing in <mark>Scotland</mark></p>
+                    <img src="media/home/vector-thistle.svg" alt="Thistle" style="padding-bottom: 2px">
+                </div>
+                <div class="business-card-line">
+                    <p>My work is driven by empathy, collaboration and <mark>fresh ideas</mark></p>
+                    <img src="media/home/vector-lightbulb.svg" alt="Lightbulb" style="padding-bottom: 2px">
+                </div>
+                <div class="business-card-line">
+                    <p>That extra little thing your project needs? <mark>I can do that</mark></p>
+                    <img src="media/home/vector-star.svg" alt="Star" style="padding-bottom: 2px">
+                </div>
+                <a href="#projects" class="view-my-work" margin-bottom="20px">
+                    <img width="100" src="media/home/view-my-work.svg" alt="View my work! button">
+                </a>
+            </div>
+
+            <!--Latest Projects Section-->
+            <!--x-data: defines this chunk of HTML as an Alpine component
+            and provides a chunk of data (in this case: selected, for the component to reference)-->
+            <!--TODO: add proper links to the pages-->
+            <div class="projects" id="projects" x-data="{selected: 0}">
+                <div class="project-list">
+                    <!--Project 1-->
+                    <a class="project-selector" @mouseover="selected = 1" @mouseleave="selected = 0"
+                    href="media/folio/documents/VEDDesign.pdf" download="">
+                        <img class="project-image" src="media/home/projects/project-VED.webp">
+                        <div class="project-number-and-title">
+                            <div class="project-number">01</div>
+                            <div class="project-title">Site Design - Very Evil Demons<br>
+                                <span class="project-client">Very Evil Demons</span>
+                            </div>
+                        </div>
+                        <div class="project-tag-container">
+                            <div class="project-tag">UX/UI</div>
+                            <div class="project-tag">Web Design</div>
+                            <div class="project-tag">User Research</div>
+                            <div class="project-tag">New Product</div>
+                        </div>
+                    </a>
+                    <!--Project 1-->
+                    <a class="project-selector" @mouseover="selected = 2" @mouseleave="selected = 0"
+                    href="media/folio/documents/DevonHealingHorsemanship.pdf" download="">
+                        <img class="project-image" src="media/home/projects/project-DHH.webp">
+                        <div class="project-number-and-title">
+                            <div class="project-number">02</div>
+                            <div class="project-title">Side Design - DHH<br>
+                                <span class="project-client">Devon Healing Horsemanship</span>
+                            </div>
+                        </div>
+                        <div class="project-tag-container">
+                            <div class="project-tag">UX/UI</div>
+                            <div class="project-tag">Web Design</div>
+                            <div class="project-tag">User Research</div>
+                            <div class="project-tag">Redesign</div>
+                        </div>
+                    </a>
+                    <!--Project 1-->
+                    <a class="project-selector" @mouseover="selected = 3" @mouseleave="selected = 0"
+                    href="media/folio/documents/IncomeandOutgoings.pdf" download="">
+                        <img class="project-image" src="media/home/projects/project-income.webp">
+                        <div class="project-number-and-title">
+                            <div class="project-number">03</div>
+                            <div class="project-title">Income & Expenditure Rework<br>
+                                <span class="project-client">Morses Club</span>
+                            </div>
+                        </div>
+                        <div class="project-tag-container">
+                            <div class="project-tag">Interaction Design</div>
+                            <div class="project-tag">UX/UI</div>
+                            <div class="project-tag">User Research</div>
+                            <div class="project-tag">Existing Product</div>
+                        </div>
+                    </a>
+                    <!--Project 2-->
+                    <a class="project-selector" @mouseover="selected = 4" @mouseleave="selected = 0"
+                    href="media/folio/documents/PAM.pdf" download="">
+                        <img class="project-image" src="media/home/projects/project-PAM.webp">
+                        <div class="project-number-and-title">
+                            <div class="project-number">04</div>
+                            <div class="project-title">Principle Application Manager<br>
+                                <span class="project-client">Shelby Finance Internal Product</span>
+                            </div>
+                        </div>
+                        <div class="project-tag-container">
+                            <div class="project-tag">Interaction Design</div>
+                            <div class="project-tag">UX/UI</div>
+                            <div class="project-tag">User Research</div>
+                            <div class="project-tag">Branding</div>
+                            <div class="project-tag">New Product</div>
+                        </div>
+                    </a>
+                    <!--Project 3-->
+                    <a class="project-selector" @mouseover="selected = 5" @mouseleave="selected = 0"
+                    href="media/folio/documents/PortalEnhancement.pdf" download="">
+                        <img class="project-image" src="media/home/projects/project-portal.webp">
+                        <div class="project-number-and-title">
+                            <div class="project-number">05</div>
+                            <div class="project-title">Online Customer Portal<br>
+                                <span class="project-client">Morses Club</span>
+                            </div>
+                        </div>
+                        <div class="project-tag-container">
+                            <div class="project-tag">UX/UI</div>
+                            <div class="project-tag">Branding</div>
+                            <div class="project-tag">Existing Product</div>
+                        </div>
+                    </a>
+                </div>
+                <!--Project selector "phone" - SHOULD NOT BE VISIBLE ON MOBILE-->
+                <div class="project-screenshot">
+                    <img  src="media/home/projects/project-select.webp" alt="Select a project to view the case study">
+                    <!--ALPINE: "x show" shows img DOM element when condition (var) selected === to 1, etc-->
+                    <!--ALPINE: "x transition" changes the opacity of the image over a duration of 500ms-->
+                    <img src="media/home/projects/project-VED-screen.webp" alt="Very Evil Demons"
+                    x-show="selected === 1" x-transition.opacity.duration.500ms>
+                    <img src="media/home/projects/project-DHH-screen.webp" alt="Devon Healing Horsemanship"
+                    x-show="selected === 2" x-transition.opacity.duration.500ms>
+                    <img src="media/home/projects/project-ie-screen.webp" alt="Income and Expenditure Rework"
+                    x-show="selected === 3" x-transition.opacity.duration.500ms>
+                    <img src="media/home/projects/project-pam-screen.webp" alt="Principle Application Manager"
+                    x-show="selected === 4" x-transition.opacity.duration.500ms>
+                    <img src="media/home/projects/project-portal-screen.webp" alt="Online Customer Portal"
+                    x-show="selected === 5" x-transition.opacity.duration.500ms>
+                </div>
+            </div>
+
+            <!--A section is like a more specifically definied "div" - think of an About Us on a webpage-->
+            <section class="available-for-work">
+                <div>I'm available for work! <br>Get in touch ☻</div>
+                <mark><a href="mailto:UXbyDLH.com">UXbyDLH@gmail.com</a></mark>
+            </section>
+
+            <!--Footer-->
+            <footer>
+                <div class="footer-links">
+                    <a href="mailto:UXbyDLH@gmail.com">CONTACT</a>
+                    <!--TODO: ADD REAL LINKS-->
+                    <a href="https://www.linkedin.com/in/dorian-h-a1b8b0302/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+                </div>
+                <a class="footer-logo" href="index.html"><img src="media/logo.svg" alt="UX by DLH logo"></a>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>
